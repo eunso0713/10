@@ -1,15 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-void main(void) {
-	FILE *fp = NULL;
-	char c;
-	fp = fopen("sample.txt", "r");
-	if (fp == NULL)
-		printf("file not opened\n");
-	
-	while((c=fgetc(fp)) != EOF)
-		putchar(c);
-	
-	fclose(fp);
+
+int main(void) {
+    FILE *fp = NULL;
+    fp = fopen("sample.txt", "a");
+    if (fp == NULL) {
+        printf("File not opened\n");
+        return 1;
+    }
+    char a[100], b[100], c[100];
+    
+    
+    printf("Input a word: ");
+    scanf("%s", a);
+    
+    printf("Input a word: ");
+    scanf("%s", b);
+    
+    printf("Input a word: ");
+    scanf("%s", c);
+    
+    fprintf(fp, "%s %s %s", a, b, c);
+    
+    fclose(fp);
+    
+    return 0;
 }
+
